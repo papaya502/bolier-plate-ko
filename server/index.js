@@ -1,6 +1,7 @@
 const express = require('express')
-const app = express()
 const port = 5000
+const app = express()
+
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const config = require('./config/key')
@@ -93,5 +94,11 @@ app.get('/api/users/logout', auth, (req, res) => {
       return res.status(200).send({success: true})
     })
 })
+
+
+app.get('/api/hello', (req, res) => {
+  res.send("Hello World!") 
+})
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
